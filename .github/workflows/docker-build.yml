@@ -39,9 +39,7 @@ jobs:
       - name: Build sample basic
         id: build-push-sample-basic
         if: (true)
-        run: |
-          cd ./sample/basic 
-          # npm i --package-lock-only      
+        run: |    
           docker build --progress=plain -f ./src/bowl/Dockerfile -t ws-bom-sample-basic-bowl:latest  .
           docker tag ws-bom-sample-basic-bowl:latest  ${{ env.REGISTRY }}/ws-bom-sample-basic-bowl:latest
           docker push ${{ env.REGISTRY }}/ws-bom-sample-basic-bowl:latest  
