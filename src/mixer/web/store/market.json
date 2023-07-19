@@ -1,0 +1,22 @@
+[
+  {
+    "id": "ww",
+    "title": "International",
+    "isActive": true,
+    "isDefault": true
+  },
+  {
+    "id": "eu",
+    "title": "Europe",
+    "isActive": true,
+    "countries": [
+      "it",
+      "en"
+    ],
+    "languages": [
+      "it",
+      "en"
+    ],
+    "defaultLanguage": "en"
+  }
+]

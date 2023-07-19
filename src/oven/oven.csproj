@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>Websolute.BOM.Oven.Web</RootNamespace>
+		<AssemblyName>Websolute.BOM.Oven.Web</AssemblyName>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<NoWarn>1591;1701;1702</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+		<UserSecretsId>08743038-e9f6-4db5-b5b5-46819d8ed445</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Websolute.BOM.Oven.Core" Version="7.0.0" />
+		<PackageReference Include="Websolute.BOM.Oven.Extensions.Api" Version="7.0.1" />
+		<PackageReference Include="Websolute.BOM.Oven.Extensions.Bowl.PayloadCms" Version="7.0.2" />
+		<PackageReference Include="Websolute.BOM.Oven.Extensions.Cors" Version="7.0.0" />
+		<PackageReference Include="Websolute.BOM.Oven.Extensions.Diagnostic" Version="7.0.0" />
+		<PackageReference Include="Websolute.BOM.Oven.Extensions.Gateway" Version="7.0.0" />
+		<PackageReference Include="Websolute.BOM.Oven.Extensions.HealthCheck" Version="7.0.0" />
+		<PackageReference Include="Websolute.BOM.Oven.Extensions.Scheduler.Hangfire" Version="7.0.0" />
+		<PackageReference Include="Websolute.BOM.Oven.Extensions.StaticFiles" Version="7.0.0" />
+	</ItemGroup>
+
+</Project>

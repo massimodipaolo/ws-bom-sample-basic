@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/websolutespa/bom/main/oven/src/modules/json-schema.json",
+  "extConfig": {
+    "folder": "Extensions",
+    "enableShutDownOnChange": false,
+    "assemblies": {
+      "Websolute.BOM.Oven.Extensions.Diagnostic": {
+        "priority": 999,
+        "options": {
+          "httpLogging": {
+            "enable": false
+          },
+          "profiler": {
+            "enable": false
+          }
+        }
+      }
+    },
+    "injectors": []
+  }
+}

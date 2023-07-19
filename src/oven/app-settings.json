@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/websolutespa/bom/main/oven/src/core/json-schema.json",
+  "appConfig": {
+    "basePath":  "/oven",
+    "dashboard": {
+      "basicAuth": {
+        "credential": {
+          "userName": "ws.admin",
+          "password": "secret"
+        }
+      },
+      "menuItems": [
+        {
+          "title": "P2M:bowl",
+          "icon": "heart-pulse",
+          "url": "https://app.pm2.io/bucket/64549e62b50e13c22b7b3a57/backend/overview/servers"
+        },
+        {
+          "title": "P2M:mixer",
+          "icon": "heart-pulse",
+          "url": "https://app.pm2.io/bucket/633714a8edd7f4afa04e9c5f/backend/overview/servers"
+        },
+        {
+          "title": "Docs",
+          "icon": "github",
+          "url": "https://github.com/websolutespa/bom"
+        }
+      ]
+    },
+    "gateway": {
+      "someservice": {
+        "host": "http://localhost:4100"
+      }
+    }
+  }
+}

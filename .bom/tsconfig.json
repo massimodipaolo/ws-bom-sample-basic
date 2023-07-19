@@ -1,0 +1,18 @@
+{
+  "extends": "@websolutespa/tsconfig/tsnode.json",
+  "include": [
+    "keeper.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+  }
+}

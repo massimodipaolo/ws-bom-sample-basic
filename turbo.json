@@ -1,0 +1,99 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      "dependsOn": [
+        "^dev"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "build/**",
+        ".next/**",
+        ".storybook/**"
+      ]
+    },
+    "start": {
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": false
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "cache": false,
+      "inputs": [
+        "**/*.tsx",
+        "**/*.ts"
+      ]
+    },
+    "test-watch": {
+      "cache": false
+    },
+    "test-e2e": {},
+    "coverage": {
+      "cache": false
+    },
+    "compile": {
+      "dependsOn": [
+        "^compile"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "clean": {
+      "cache": false
+    }
+  },
+  "globalDependencies": [
+    "*.env"
+  ],
+  "globalEnv": [
+    "PAGES",
+    "COLLECTIONS",
+    "MOCKS",
+    "PRODUCTION",
+    "ANALYZE",
+    "CI",
+    "FS_STORAGE_BASEDIR",
+    "FS_STORAGE_BASEURL",
+    "FS_STORAGE_DISABLE_PAYLOAD_ACCESS_CONTROL",
+    "FS_STORAGE_ENABLE_GENERATE_FILE_URL",
+    "HOOKS_SECRET",
+    "IMAGE_DOMAIN",
+    "MONGODB_URI",
+    "NODE_ENV",
+    "OPENAI_API_KEY",
+    "PAYLOAD_CONFIG_PATH",
+    "PAYLOAD_PUBLIC_BASE_PATH",
+    "PAYLOAD_PUBLIC_PREVIEW_URL",
+    "PAYLOAD_PUBLIC_SERVER_URL",
+    "PAYLOAD_SECRET",
+    "PORT",
+    "ROOT_CATEGORY",
+    "ROUTE_STRATEGY",
+    "SECRET_COOKIE_PASSWORD",
+    "STORE_API",
+    "STORE_BEARER",
+    "STORE_STRATEGY",
+    "STORE_URL",
+    "TS_JEST",
+    "NEXT_PHASE",
+    "NEXT_RUNTIME",
+    "NEXT_PUBLIC_API",
+    "NEXT_PUBLIC_GOOGLE_MAP_API_KEY",
+    "NEXT_PUBLIC_MOCK_FALLBACK_URL",
+    "NEXT_PUBLIC_URL"
+  ]
+}

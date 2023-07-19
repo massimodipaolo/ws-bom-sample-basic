@@ -1,0 +1,51 @@
+[
+  {
+    "id": "notfound.title",
+    "text": {
+      "en": "Page not found",
+      "it": "Pagina non trovata"
+    }
+  },
+  {
+    "id": "notfound.abstract",
+    "text": {
+      "en": "The page you are looking for does not exist.",
+      "it": "La pagina che stai cercando non esiste."
+    }
+  },
+  {
+    "id": "navigation.back",
+    "text": {
+      "en": "Back",
+      "it": "Indietro"
+    }
+  },
+  {
+    "id": "error.required",
+    "text": {
+      "en": "Required field",
+      "it": "Campo obbligatorio"
+    }
+  },
+  {
+    "id": "error.email",
+    "text": {
+      "en": "Invalid email",
+      "it": "Email non valida"
+    }
+  },
+  {
+    "id": "error.match",
+    "text": {
+      "en": "Fields do not match",
+      "it": "I campi non corrispondono"
+    }
+  },
+  {
+    "id": "error.exhist",
+    "text": {
+      "en": "This value is already in use",
+      "it": "Questo valore è già in uso"
+    }
+  }
+]

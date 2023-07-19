@@ -1,0 +1,21 @@
+{
+  "extends": "@websolutespa/tsconfig/tsreact.json",
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage"
+  ],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "commonjs",
+    "isolatedModules": false,
+    "strict": false
+  },
+  "ts-node": {
+    "transpileOnly": true
+  }
+}

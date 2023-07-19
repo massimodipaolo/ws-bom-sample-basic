@@ -1,0 +1,75 @@
+{
+  "name": "ws-bom-sample-basic",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "src/bowl/**",
+    "src/mixer/packages/*",
+    "src/mixer/storybook",
+    "src/mixer/theme",
+    "src/mixer/web",
+    "src/packages/**"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel --filter=!@ws-bom-sample-basic/storybook --no-daemon",
+    "dev:bowl": "turbo run dev --parallel --filter=@ws-bom-sample-basic/bowl --filter=./src/bowl/packages/* --filter=./src/packages/* --no-daemon",
+    "dev:web": "turbo run dev --parallel --filter=@ws-bom-sample-basic/web --filter=./src/mixer/packages/* --filter=./src/packages/* --no-daemon",
+    "dev:theme": "turbo run dev --parallel --filter=@ws-bom-sample-basic/theme --filter=./src/mixer/packages/* --filter=./src/packages/* --no-daemon",
+    "dev:stories": "turbo run dev --parallel --filter=@ws-bom-sample-basic/storybook --filter=./src/mixer/packages/* --filter=./src/packages/* --no-daemon",
+    "prune:bowl": "turbo prune --scope=@ws-bom-sample-basic/bowl --docker",
+    "prune:web": "turbo prune --scope=@ws-bom-sample-basic/web --docker",
+    "build": "turbo run build --filter=!@ws-bom-sample-basic/storybook --filter=!@ws-bom-sample-basic/theme --no-daemon",
+    "build:bowl": "turbo run build --filter=@ws-bom-sample-basic/bowl --filter=./src/bowl/packages/* --filter=./src/packages/* --no-daemon",
+    "build:web": "turbo run build --filter=@ws-bom-sample-basic/web --filter=./src/mixer/packages/* --filter=./src/packages/* --no-daemon",
+    "build:theme": "turbo run build --filter=@ws-bom-sample-basic/theme --filter=./src/mixer/packages/* --filter=./src/packages/* --no-daemon",
+    "build:stories": "turbo run build --filter=@ws-bom-sample-basic/storybook --filter=./src/mixer/packages/* --filter=./src/packages/* --no-daemon",
+    "build:packages": "turbo run build --filter=./src/mixer/packages/core --no-daemon",
+    "analyze": "cross-env ANALYZE=true npm run build:web",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "start": "turbo run start --scope=@ws-bom-sample-basic/web",
+    "serve": "turbo run start --scope=@ws-bom-sample-basic/web",
+    "serve:bowl": "turbo run start --scope=@ws-bom-sample-basic/bowl",
+    "serve:web": "turbo run start --scope=@ws-bom-sample-basic/web",
+    "serve:theme": "turbo run start --scope=@ws-bom-sample-basic/theme",
+    "serve:stories": "turbo run start --scope=@ws-bom-sample-basic/storybook",
+    "storybook": "turbo run dev --parallel --filter=@ws-bom-sample-basic/storybook",
+    "test:bowl": "turbo run test --parallel --filter=@ws-bom-sample-basic/bowl --filter=./src/bowl/packages/* --no-daemon",
+    "test:web": "turbo run test --parallel --filter=@ws-bom-sample-basic/web --filter=./src/mixer/packages/* --no-daemon",
+    "test": "turbo run test --no-daemon",
+    "test-watch": "turbo run test-watch --no-daemon",
+    "test-e2e": "turbo run test-e2e --concurrency=1 --no-daemon",
+    "coverage": "turbo run coverage --no-daemon",
+    "bowl": "npm run dev:bowl",
+    "oven": "dotnet watch run -lp web",
+    "mixer": "npm run dev:web",
+    "keeper": "ts-node .bom/keeper.ts"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.0",
+    "@swc/jest": "^0.2.24",
+    "@websolutespa/bom-cli": "latest",
+    "@websolutespa/dotenv-keeper": "latest",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.36.0",
+    "eslint-config-websolute": "*",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "turbo": "^1.10.7"
+  },
+  "bundledDependencies": [
+    "packages/test"
+  ],
+  "engines": {
+    "npm": ">=8.5.5 <=9.x.x",
+    "node": ">=16.15.0 <=18.x.x"
+  },
+  "packageManager": "npm@8.5.5",
+  "overrides": {
+    "graphql@>15.7.0 <16.7.0": "^15.8.0"
+  }
+}

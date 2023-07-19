@@ -1,0 +1,53 @@
+name: ws-bom Build and publish Docker images
+on:
+  push:
+    branches: [ "main" ]
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    name: Build & push docker image
+    runs-on: ubuntu-latest    
+    env:
+      REPOSITORY: ${{ github.repository }}
+      REGISTRY: wsdev.azurecr.io
+      AZURE_CONTAINER_REGISTRY_USER: ${{ secrets.AZURE_CONTAINER_REGISTRY_USER }}
+      AZURE_CONTAINER_REGISTRY_PWD: ${{ secrets.AZURE_CONTAINER_REGISTRY_PWD }}
+    steps: 
+      - name: Checkout
+        id: checkout-repo
+        uses: actions/checkout@v3
+      - name: Login to Azure Container Registry
+        id: logn-ACR
+        uses: docker/login-action@v2  
+        with:
+          registry: ${{ env.REGISTRY }}      
+          username: ${{ env.AZURE_CONTAINER_REGISTRY_USER }}
+          password: ${{ env.AZURE_CONTAINER_REGISTRY_PWD }}   
+      - name: Build utility
+        id: build-push-utility-image
+        if: (false)
+        run: |
+          docker build -f ./.docker/ws-bom-proxy/Dockerfile -t ws-bom-proxy:latest  ./.docker/ws-bom-proxy
+          docker tag ws-bom-proxy:latest  ${{ env.REGISTRY }}/ws-bom-proxy:latest
+          docker push ${{ env.REGISTRY }}/ws-bom-proxy:latest
+          docker build -f ./.docker/ws-bom-mongo/Dockerfile -t ws-bom-mongo:latest  ./.docker/ws-bom-mongo
+          docker tag ws-bom-mongo:latest  ${{ env.REGISTRY }}/ws-bom-mongo:latest  
+          docker push ${{ env.REGISTRY }}/ws-bom-mongo:latest       
+      - name: Build sample basic
+        id: build-push-sample-basic
+        if: (true)
+        run: |
+          cd ./sample/basic 
+          # npm i --package-lock-only      
+          docker build --progress=plain -f ./src/bowl/Dockerfile -t ws-bom-sample-basic-bowl:latest  .
+          docker tag ws-bom-sample-basic-bowl:latest  ${{ env.REGISTRY }}/ws-bom-sample-basic-bowl:latest
+          docker push ${{ env.REGISTRY }}/ws-bom-sample-basic-bowl:latest  
+          docker build --progress=plain -f ./src/oven/Dockerfile -t ws-bom-sample-basic-oven:latest  ./src/oven
+          docker tag ws-bom-sample-basic-oven:latest  ${{ env.REGISTRY }}/ws-bom-sample-basic-oven:latest
+          docker push ${{ env.REGISTRY }}/ws-bom-sample-basic-oven:latest    
+          docker build --progress=plain -f ./src/mixer/Dockerfile -t ws-bom-sample-basic-mixer:latest  .
+          docker tag ws-bom-sample-basic-mixer:latest  ${{ env.REGISTRY }}/ws-bom-sample-basic-mixer:latest
+          docker push ${{ env.REGISTRY }}/ws-bom-sample-basic-mixer:latest                  

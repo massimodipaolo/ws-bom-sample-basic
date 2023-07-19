@@ -1,0 +1,219 @@
+{
+  "category": [
+    {
+      "id": "homepage",
+      "slug": "",
+      "title": "Home",
+      "schema": "category"
+    }
+  ],
+  "homepage": [
+    {
+      "createdAt": "2023-02-20T15:50:07.480Z",
+      "updatedAt": "2023-04-18T07:52:29.905Z",
+      "id": 1,
+      "category": "homepage",
+      "template": "homepage",
+      "isDefault": true,
+      "slug": "",
+      "title": {
+        "en": "Mixer",
+        "it": "Mixer"
+      },
+      "abstract": {
+        "en": "Next generation stack by Websolute",
+        "it": "Next generation stack by Websolute"
+      },
+      "components": [
+        {
+          "schema": "description-1",
+          "description": {
+            "en": "<p>BOM application stack by Websolute to build static and dynamic websites and web applications</p><p>Our tools will help you build websites and applications that are not only beautiful and functional, but also static and dynamic.</p><p>We've integrated Next.js to streamline the web development process, allowing for seamless switching between static and dynamic pages.</p><p>And with Payload CMS, you can easily manage your content without any coding experience. This powerful combination results in websites and web applications that are fast, modern, and user-centric.</p>",
+            "it": "<p>Stack applicativo BOM di Websolute per la realizzazione di siti e applicazioni web statiche e dinamiche</p><p>I nostri strumenti ti aiuteranno a realizzare siti web e applicazioni non solo belli e funzionali, ma anche statici e dinamici.</p><p>Abbiamo integrato Next.js per semplificare il processo di sviluppo Web, consentendo il passaggio senza interruzioni tra pagine statiche e dinamiche.</p><p>E con Payload CMS, puoi gestire facilmente i tuoi contenuti senza alcuna esperienza di programmazione. Questa potente combinazione si traduce in siti Web e applicazioni Web veloci, moderni e incentrati sull'utente.</p>"
+          }
+        }
+      ],
+      "meta": {
+        "title": {
+          "en": "Mixer",
+          "it": "Mixer"
+        },
+        "description": {
+          "en": "BOM application stack by Websolute to build static and dynamic websites and web applications",
+          "it": "Stack applicativo BOM di Websolute per la realizzazione di siti e applicazioni web statiche e dinamiche"
+        },
+        "keywords": "mixer keywords",
+        "robots": "all"
+      },
+      "schema": "homepage"
+    }
+  ],
+  "label": [
+    {
+      "id": "notfound.title",
+      "text": {
+        "en": "Page not found",
+        "it": "Pagina non trovata"
+      },
+      "schema": "label"
+    },
+    {
+      "id": "notfound.abstract",
+      "text": {
+        "en": "The page you are looking for does not exist.",
+        "it": "La pagina che stai cercando non esiste."
+      },
+      "schema": "label"
+    },
+    {
+      "id": "navigation.back",
+      "text": {
+        "en": "Back",
+        "it": "Indietro"
+      },
+      "schema": "label"
+    },
+    {
+      "id": "error.required",
+      "text": {
+        "en": "Required field",
+        "it": "Campo obbligatorio"
+      },
+      "schema": "label"
+    },
+    {
+      "id": "error.email",
+      "text": {
+        "en": "Invalid email",
+        "it": "Email non valida"
+      },
+      "schema": "label"
+    },
+    {
+      "id": "error.match",
+      "text": {
+        "en": "Fields do not match",
+        "it": "I campi non corrispondono"
+      },
+      "schema": "label"
+    },
+    {
+      "id": "error.exhist",
+      "text": {
+        "en": "This value is already in use",
+        "it": "Questo valore è già in uso"
+      },
+      "schema": "label"
+    }
+  ],
+  "locale": [
+    {
+      "id": "en",
+      "title": "English",
+      "isDefault": true,
+      "schema": "locale"
+    },
+    {
+      "id": "it",
+      "title": "Italiano",
+      "schema": "locale"
+    }
+  ],
+  "market": [
+    {
+      "id": "ww",
+      "title": "International",
+      "isActive": true,
+      "isDefault": true,
+      "schema": "market"
+    },
+    {
+      "id": "eu",
+      "title": "Europe",
+      "isActive": true,
+      "countries": [
+        "it",
+        "en"
+      ],
+      "languages": [
+        "it",
+        "en"
+      ],
+      "defaultLanguage": "en",
+      "schema": "market"
+    }
+  ],
+  "template": [
+    {
+      "id": "homepage",
+      "name": "Homepage",
+      "collections": [
+        "homepage"
+      ],
+      "schema": "template"
+    }
+  ],
+  "menu": [],
+  "route": [
+    {
+      "id": "/en-ww",
+      "market": "ww",
+      "locale": "en",
+      "category": "homepage",
+      "page": 1,
+      "schema": "homepage",
+      "template": "homepage",
+      "title": "Mixer",
+      "isDefault": true,
+      "updatedAt": "2023-04-18T07:52:29.905Z"
+    },
+    {
+      "id": "/it-ww",
+      "market": "ww",
+      "locale": "it",
+      "category": "homepage",
+      "page": 1,
+      "schema": "homepage",
+      "template": "homepage",
+      "title": "Mixer",
+      "isDefault": true,
+      "updatedAt": "2023-04-18T07:52:29.905Z"
+    },
+    {
+      "id": "/it-eu",
+      "market": "eu",
+      "locale": "it",
+      "category": "homepage",
+      "page": 1,
+      "schema": "homepage",
+      "template": "homepage",
+      "title": "Mixer",
+      "isDefault": true,
+      "updatedAt": "2023-04-18T07:52:29.905Z"
+    },
+    {
+      "id": "/en-eu",
+      "market": "eu",
+      "locale": "en",
+      "category": "homepage",
+      "page": 1,
+      "schema": "homepage",
+      "template": "homepage",
+      "title": "Mixer",
+      "isDefault": true,
+      "updatedAt": "2023-04-18T07:52:29.905Z"
+    },
+    {
+      "id": "/",
+      "market": "ww",
+      "locale": "en",
+      "category": "homepage",
+      "page": 1,
+      "schema": "homepage",
+      "template": "homepage",
+      "title": "Mixer",
+      "isDefault": true,
+      "updatedAt": "2023-04-18T07:52:29.905Z"
+    }
+  ]
+}

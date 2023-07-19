@@ -1,0 +1,53 @@
+@using Websolute.BOM.Oven.Core.Services;
+@inject IDashboard dashboard
+@inject IConfiguration config
+@page "/dashboard/ui"
+
+<PageTitle>App Ui</PageTitle>
+
+<h1>List of exposed app Ui</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (uis == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    var _basePath = config?.GetSection($"{Startup.AppConfigSectionRoot}:{nameof(IAppConfiguration.BasePath).ToLower()}").Get<string>();
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Path</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ui in uis)
+            {
+                <tr>
+                    <td colspan="3">@ui?.Name</td>
+                </tr>
+                @foreach (var path in ui?.UiPaths)
+                {
+                    var _href = $"{_basePath}{path.Path}";
+                    <tr>
+                        <td></td>
+                        <td>@path.Title</td>
+                        <td><a href="@_href" target="_blank">@path.Path</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<Extensions.Base.IDashboardUi?>? uis;
+    protected override void OnInitialized()
+    {
+        uis = dashboard.Uis;
+    }
+}
