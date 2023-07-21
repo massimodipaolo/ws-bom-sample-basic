@@ -19,7 +19,7 @@ WORKDIR /app
 #install
 COPY --from=pruner /app/out/json/ .
 COPY --from=pruner /app/out/package-lock.json ./package-lock.json
-RUN npm ci 
+RUN npm i 
 # build
 COPY --from=pruner /app/out/full/ .
 #ARG PAYLOAD_PUBLIC_SERVER_URL
