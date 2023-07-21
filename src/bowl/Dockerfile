@@ -8,8 +8,9 @@ WORKDIR /app
 RUN npm i -g turbo@1.10.7
 COPY turbo.json ./turbo.json
 COPY package.json ./package.json
+COPY package-lock.json ./package-lock.json
 COPY src/bowl/payload/package.json ./src/bowl/payload/package.json
-RUN npm i --package-lock-only
+#RUN npm i --package-lock-only
 COPY src/bowl ./src/bowl
 RUN npm run prune:bowl
 
