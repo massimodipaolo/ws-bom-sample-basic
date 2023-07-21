@@ -29,23 +29,27 @@ jobs:
           username: ${{ env.AZURE_CONTAINER_REGISTRY_USER }}
           password: ${{ env.AZURE_CONTAINER_REGISTRY_PWD }}   
       - name: Build bowl
-        id: build-push-bowl
+        id: build-bowl
         if: (true)
         run: |    
           docker build --progress=plain -f ./src/bowl/Dockerfile -t ${{ env.PROJECT }}-bowl:latest  .
-          docker tag ${{ env.PROJECT }}-bowl:latest  ${{ env.REGISTRY }}/${{ env.PROJECT }}-bowl:latest
-          docker push ${{ env.REGISTRY }}/${{ env.PROJECT }}-bowl:latest       
+          docker tag ${{ env.PROJECT }}-bowl:latest  ${{ env.REGISTRY }}/${{ env.PROJECT }}-bowl:latest      
       - name: Build oven
-        id: build-push-oven
+        id: build-oven
         if: (true)
         run: |    
           docker build --progress=plain -f ./src/oven/Dockerfile -t ${{ env.PROJECT }}-oven:latest  ./src/oven
           docker tag ${{ env.PROJECT }}-oven:latest  ${{ env.REGISTRY }}/${{ env.PROJECT }}-oven:latest
-          docker push ${{ env.REGISTRY }}/${{ env.PROJECT }}-oven:latest    
       - name: Build mixer
-        id: build-push-mixer
+        id: build-mixer
         if: (true)
         run: |    
           docker build --progress=plain -f ./src/mixer/Dockerfile -t ${{ env.PROJECT }}-mixer:latest  .
-          docker tag ${{ env.PROJECT }}-mixer:latest  ${{ env.REGISTRY }}/${{ env.PROJECT }}-mixer:latest
-          docker push ${{ env.REGISTRY }}/${{ env.PROJECT }}-mixer:latest                                
+          docker tag ${{ env.PROJECT }}-mixer:latest  ${{ env.REGISTRY }}/${{ env.PROJECT }}-mixer:latest  
+      - name: Push images
+        id: push-images
+        if: (true)
+        run: |    
+          docker push ${{ env.REGISTRY }}/${{ env.PROJECT }}-bowl:latest 
+          docker push ${{ env.REGISTRY }}/${{ env.PROJECT }}-oven:latest    
+          docker push ${{ env.REGISTRY }}/${{ env.PROJECT }}-mixer:latest                                      
